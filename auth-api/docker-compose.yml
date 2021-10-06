@@ -1,0 +1,12 @@
+version: '1'
+services:
+  auth-api:
+    build:
+      # use the mono-repo root dockerfile
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app/
+      - ./node_modules:/usr/app/node_modules
+    ports:
+      - '3060:3060'
