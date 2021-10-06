@@ -1,6 +1,6 @@
 version: '2.2'
 services:
-  auth-api:
+  spa-2:
     build:
       # use the mono-repo root dockerfile
       context: ./
@@ -9,4 +9,4 @@ services:
       - ./:/usr/src/app/
       - ./node_modules:/usr/app/node_modules
     ports:
-      - '3060:3060'
+      - '3001:3001'
