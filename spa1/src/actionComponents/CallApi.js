@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../components/Loading";
+const externalAPI = "https://s1n5lju3i9.execute-api.ap-southeast-2.amazonaws.com/default/stablada-auth0-poc-lambda" || "http://localhost:3060/userData";
 
 const CallApi = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -29,7 +30,7 @@ const CallApi = () => {
 
       const userMetaData = await metadataResponse.json();
 
-      const response = await fetch(`http://localhost:3060/userData`, {
+      const response = await fetch(externalAPI, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -38,7 +39,7 @@ const CallApi = () => {
       const responseData = await response.json();
 
       setUserMetadata(userMetaData);
-      setApiRes(responseData);
+      setApiRes(JSON.stringify(responseData));
     } catch (e) {
       console.log(e.message);
     }
@@ -60,7 +61,10 @@ const CallApi = () => {
           "No user metadata defined"
         )}
         {apiRes ? (
-          <pre>{apiRes.message}</pre>
+          <>
+          <pre>API Response</pre>
+          <pre>{apiRes}</pre>
+          </>
         ) : (
           "No api res"
         )}
