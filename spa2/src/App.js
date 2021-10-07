@@ -1,11 +1,12 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import LoginButton from './components/Login';
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./components/Profile";
 import Home from "./components/Home";
+import Nav from "./components/Nav";
 import CallApi from "./actionComponents/CallApi";
 // import history from "./utils/history";
 import { createBrowserHistory } from "history";
@@ -22,10 +23,12 @@ function App() {
   return (
     <Router history={history}>
     <div className="App">
+      <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <LoginButton />
+        <p>SPA 2</p>
         <Switch>
+            <Route exact path="/" component={Profile} />
             <Route path="/profile" component={Profile} />
             <Route path="/callApi" component={CallApi} />
           </Switch>

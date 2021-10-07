@@ -4,6 +4,7 @@ const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
 const port = 3060;
 const authConfig = {
   "domain": "whispir-tabs.au.auth0.com",
@@ -11,7 +12,16 @@ const authConfig = {
 };
 
 // Enable CORS
-app.use(cors({ origin: ["http://localhost:3000","http://localhost:3001"] }));
+app.use(cors(
+  { origin:
+    [
+      "https://ecruz-spa-1.whispirdev.com/",
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:8080",
+    ]
+  }
+));
 
 // Enable the use of request body parsing middleware
 app.use(bodyParser.json());
@@ -42,7 +52,7 @@ app.get('/userData', checkJwt, async function(req, res){
   res.status(201).send({message: data ? 'User valid' : 'User INVALID'});
 });
   
-// Launch the API Server at localhost:8080
+// Launch the API Server at localhost
 app.listen(port, () => {
   console.info(`auth0 api demo runnning on port ${port}`);
 });

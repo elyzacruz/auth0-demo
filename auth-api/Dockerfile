@@ -10,7 +10,6 @@ COPY package*.json ./
 # run npm install in our local machine
 RUN npm install
 
-
 # our app is running on port 5000 within the container, so need to expose it
 EXPOSE 3060
 
