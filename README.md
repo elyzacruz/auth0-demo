@@ -10,12 +10,10 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* /spa1 -> runs login page
+* /spa2 -> run profile & call api -- call external api
+* auth-api -> don't mind this, we deployed a different external api
+* proxy -> don't mind this
 
 ### Contribution guidelines ###
 
