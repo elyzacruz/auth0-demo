@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 // import { Container, Row, Col } from "reactstrap";
 
 // import Highlight from "../components/Highlight";
@@ -7,7 +7,12 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import LogoutButton from "./Logout";
 
 const ProfileComponent = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  // useEffect(async() => {
+  //   const x = await getAccessTokenSilently();
+  //   console.info('A_T: ', x);
+  // },[]);
+  
 
   return (
     <>

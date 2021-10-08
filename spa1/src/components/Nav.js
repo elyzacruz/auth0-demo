@@ -30,7 +30,8 @@ const Navigation = () => {
         {isAuthenticated && (
             <button
             onClick={() => {
-              window.location.href=`${window.location.origin}/profile`
+              window.location.href='http://localhost:3001/profile' ||`${window.location.origin}/profile`
+              // window.location.href="https://ecruz-spa-1.whispirdev.com/profile"
             }}>
               Profile
           </button>

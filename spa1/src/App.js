@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
@@ -13,7 +13,14 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 function App() {
-  const { error } = useAuth0();
+  const { error, getAccessTokenSilently } = useAuth0();
+
+
+  // useEffect(async() => {
+  //   const x = await getAccessTokenSilently();
+  //   console.info('A_T: ', x);
+  // },[]);
+  
 
   if (error) {
     console.error('Error', error);

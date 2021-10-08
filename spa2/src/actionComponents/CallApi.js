@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "../components/Loading";
+import "./CallApi.css";
 const externalAPI = "https://s1n5lju3i9.execute-api.ap-southeast-2.amazonaws.com/default/stablada-auth0-poc-lambda" || "http://localhost:3060/userData";
 
 const CallApi = () => {
@@ -49,18 +50,18 @@ const CallApi = () => {
   return (
     isAuthenticated && (
       <div>
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <h3>User Metadata</h3>
+        <p>User name: {user.name}</p>
+        <p>User email: {user.email}</p>
+        <p>User Metadata: </p>
         {userMetadata ? (
-          <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
+          <p>{JSON.stringify(userMetadata, null, 2)}</p>
         ) : (
           "No user metadata defined"
         )}
         {apiRes ? (
           <>
-          <pre>API Response</pre>
-          <pre>{apiRes}</pre>
+          <p>API Response</p>
+          <p>{apiRes}</p>
           </>
         ) : (
           "No api res"

@@ -9,7 +9,7 @@ ReactDOM.render(
       domain="whispir-tabs.au.auth0.com"
       clientId="rv7FbUY4fvJ3OkIKljPjappC0VbF4tbL"
       redirectUri={`${window.location.origin}`}
-      audience="https://s1n5lju3i9.execute-api.ap-southeast-2.amazonaws.com/default/stablada-auth0-poc-lambda"
+      audience="https://whispir-tabs.au.auth0.com/api/v2/"
       scope="read:current_user"
     >
       <App />
